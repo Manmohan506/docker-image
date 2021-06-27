@@ -1,2 +1,3 @@
 FROM        ubuntu
-USER        bin
+RUN         useradd roboshop
+USER        roboshop
