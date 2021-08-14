@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   frontend:
-    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/frontend:0.0.9
+    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/frontend
     container_name: frontend
     ports:
     - "80:80"
@@ -12,30 +12,30 @@ services:
     - shipping
     - payment
   cart:
-    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/cart:0.0.22
+    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/cart
     container_name: cart
     depends_on:
     - redis
   catalogue:
-    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/catalogue:0.0.2
+    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/catalogue
     container_name: catalogue
     depends_on:
     - mongodb
   user:
-    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/user:0.0.3
+    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/user
     container_name: user
     depends_on:
     - mongodb
     - redis
   shipping:
-    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/shipping:0.0.4
+    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/shipping
     container_name: shipping
-    depends_on:
-    - mysql
-    environment:
-      CART_ENDPOINT: "cart:8080"
+    #depends_on:
+   # - mysql
+    #environment:
+    #  CART_ENDPOINT: "cart:8080"
   payment:
-    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/payment:0.0.3
+    image: 935971373437.dkr.ecr.us-east-1.amazonaws.com/payment
     container_name: payment
     depends_on:
     - rabbitmq
